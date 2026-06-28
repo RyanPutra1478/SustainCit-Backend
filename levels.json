@@ -1,0 +1,1044 @@
+{
+  "remajaLevels": [
+    {
+      "levelName": "Level 1: Pemanasan",
+      "quests": [
+        {
+          "id": "pungut_sampah",
+          "description": "Pungut 3 Sampah di taman kota",
+          "targetAmount": 3,
+          "rewardEnv": 2,
+          "rewardKnowledgePoints": 10
+        }
+      ],
+      "reflection": {
+        "question": "Mengapa kita harus memungut sampah yang berserakan?",
+        "options": [
+          "A. Agar kota menjadi bersih dan sehat",
+          "B. Karena disuruh orang tua",
+          "C. Agar mendapat hadiah uang"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "levelName": "Level 2: Hemat Listrik & Belajar",
+      "quests": [
+        {
+          "id": "matikan_lampu",
+          "description": "Laporkan 2 Lampu Jalan yang rusak ",
+          "targetAmount": 2,
+          "rewardEnv": 2,
+          "rewardKnowledgePoints": 10
+        },
+        {
+          "id": "belajar_sdg",
+          "description": "Pelajari 1 Modul SDG di rak Kelas",
+          "targetAmount": 1,
+          "rewardEnv": 1,
+          "rewardKnowledgePoints": 15
+        }
+      ],
+      "reflection": {
+        "question": "Mengapa kita perlu mematikan alat elektronik atau lampu yang tidak terpakai?",
+        "options": [
+          "A. Agar tagihan listrik lebih murah",
+          "B. Mengurangi emisi karbon dan menghemat energi",
+          "C. Agar alatnya tidak cepat panas"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "levelName": "Level 3: Patroli Air",
+      "quests": [
+        {
+          "id": "tutup_keran",
+          "description": "Laporkan 1 Keran Hydrant yang bocor",
+          "targetAmount": 1,
+          "rewardEnv": 2,
+          "rewardKnowledgePoints": 10
+        }
+      ],
+      "reflection": {
+        "question": "Berapa banyak air yang terbuang sia-sia dari keran yang terus menetes seharian?",
+        "options": [
+          "A. Bisa mencapai belasan liter",
+          "B. Hanya beberapa tetes",
+          "C. Air tidak akan habis"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "levelName": "Level 4: Aksi Ganda",
+      "quests": [
+        {
+          "id": "pungut_sampah",
+          "description": "Pungut 2 Sampah di taman",
+          "targetAmount": 2,
+          "rewardEnv": 1,
+          "rewardKnowledgePoints": 10
+        },
+        {
+          "id": "matikan_lampu",
+          "description": "Laporkan 1 Lampu Jalan rusak ",
+          "targetAmount": 1,
+          "rewardEnv": 1,
+          "rewardKnowledgePoints": 10
+        }
+      ],
+      "reflection": {
+        "question": "Apa dampak membiarkan sampah berserakan di fasilitas umum?",
+        "options": [
+          "A. Menyebabkan penyakit dan merusak pemandangan",
+          "B. Menjadi hiasan jalan",
+          "C. Membantu tanaman tumbuh"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "levelName": "Level 5: Polisi Sampah & Pelajar",
+      "quests": [
+        {
+          "id": "tegur_npc",
+          "description": "Tegur 2 Warga yang membuang sembarangan",
+          "targetAmount": 2,
+          "rewardEnv": 3,
+          "rewardKnowledgePoints": 15
+        },
+        {
+          "id": "belajar_sdg",
+          "description": "Pelajari 1 Modul SDG di rak Kelas",
+          "targetAmount": 1,
+          "rewardEnv": 1,
+          "rewardKnowledgePoints": 15
+        }
+      ],
+      "reflection": {
+        "question": "Apa manfaat mempelajari modul Sustainable Development Goals (SDG)?",
+        "options": [
+          "A. Untuk gaya-gayaan",
+          "B. Menambah wawasan untuk menyelamatkan bumi",
+          "C. Menghabiskan waktu luang"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "levelName": "Level 6: Perintah Guru & Bersih Lingkungan",
+      "quests": [
+        {
+          "id": "temui_guru",
+          "description": "Temui Guru di Kelas untuk menerima misi",
+          "targetAmount": 1,
+          "rewardEnv": 0,
+          "rewardKnowledgePoints": 0
+        },
+        {
+          "id": "pungut_sampah_anorganik",
+          "description": "Pungut 5 Sampah Anorganik di taman",
+          "targetAmount": 5,
+          "rewardEnv": 3,
+          "rewardKnowledgePoints": 15
+        }
+      ],
+      "reflection": {
+        "question": "Apa dampak membiarkan sampah berserakan di fasilitas umum?",
+        "options": [
+          "A. Menyebabkan penyakit dan merusak pemandangan",
+          "B. Menjadi hiasan jalan",
+          "C. Membantu tanaman tumbuh"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "levelName": "Level 7: Pemadaman Massal",
+      "quests": [
+        {
+          "id": "matikan_lampu",
+          "description": "Laporkan 4 Lampu Jalan rusak ",
+          "targetAmount": 4,
+          "rewardEnv": 3,
+          "rewardKnowledgePoints": 15
+        }
+      ],
+      "reflection": {
+        "question": "Mengapa kita perlu mematikan alat elektronik atau lampu yang tidak terpakai?",
+        "options": [
+          "A. Agar tagihan listrik lebih murah",
+          "B. Mengurangi emisi karbon dan menghemat energi",
+          "C. Agar alatnya tidak cepat panas"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "levelName": "Level 8: Cegah Banjir & Teori",
+      "quests": [
+        {
+          "id": "tutup_keran",
+          "description": "Laporkan 2 Keran Hydrant bocor",
+          "targetAmount": 2,
+          "rewardEnv": 3,
+          "rewardKnowledgePoints": 15
+        },
+        {
+          "id": "belajar_sdg",
+          "description": "Pelajari 1 Modul SDG di rak Kelas",
+          "targetAmount": 1,
+          "rewardEnv": 1,
+          "rewardKnowledgePoints": 15
+        }
+      ],
+      "reflection": {
+        "question": "Berapa banyak air yang terbuang sia-sia dari keran yang terus menetes seharian?",
+        "options": [
+          "A. Bisa mencapai belasan liter",
+          "B. Hanya beberapa tetes",
+          "C. Air tidak akan habis"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "levelName": "Level 9: Kombinasi Menengah",
+      "quests": [
+        {
+          "id": "pungut_sampah",
+          "description": "Pungut 3 Sampah di taman",
+          "targetAmount": 3,
+          "rewardEnv": 2,
+          "rewardKnowledgePoints": 15
+        },
+        {
+          "id": "tutup_keran",
+          "description": "Laporkan 1 Keran Hydrant bocor",
+          "targetAmount": 1,
+          "rewardEnv": 2,
+          "rewardKnowledgePoints": 15
+        }
+      ],
+      "reflection": {
+        "question": "Apa dampak membiarkan sampah berserakan di fasilitas umum?",
+        "options": [
+          "A. Menyebabkan penyakit dan merusak pemandangan",
+          "B. Menjadi hiasan jalan",
+          "C. Membantu tanaman tumbuh"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "levelName": "Level 10: Duta Sosial & Lingkungan",
+      "quests": [
+        {
+          "id": "tegur_npc",
+          "description": "Tegur 3 Warga",
+          "targetAmount": 3,
+          "rewardEnv": 3,
+          "rewardKnowledgePoints": 20
+        },
+        {
+          "id": "bagikan_sdg",
+          "description": "Bagikan 1 Informasi SDG",
+          "targetAmount": 1,
+          "rewardEnv": 1,
+          "rewardKnowledgePoints": 20
+        }
+      ],
+      "reflection": {
+        "question": "Apa manfaat mempelajari modul Sustainable Development Goals (SDG)?",
+        "options": [
+          "A. Untuk gaya-gayaan",
+          "B. Menambah wawasan untuk menyelamatkan bumi",
+          "C. Menghabiskan waktu luang"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "levelName": "Level 11: Misi Maraton",
+      "quests": [
+        {
+          "id": "pungut_sampah",
+          "description": "Pungut 7 Sampah di taman",
+          "targetAmount": 7,
+          "rewardEnv": 4,
+          "rewardKnowledgePoints": 20
+        }
+      ],
+      "reflection": {
+        "question": "Apa dampak membiarkan sampah berserakan di fasilitas umum?",
+        "options": [
+          "A. Menyebabkan penyakit dan merusak pemandangan",
+          "B. Menjadi hiasan jalan",
+          "C. Membantu tanaman tumbuh"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "levelName": "Level 12: Pengawal Energi",
+      "quests": [
+        {
+          "id": "matikan_lampu",
+          "description": "Laporkan 6 Lampu Jalan rusak ",
+          "targetAmount": 6,
+          "rewardEnv": 4,
+          "rewardKnowledgePoints": 20
+        }
+      ],
+      "reflection": {
+        "question": "Mengapa kita perlu mematikan alat elektronik atau lampu yang tidak terpakai?",
+        "options": [
+          "A. Agar tagihan listrik lebih murah",
+          "B. Mengurangi emisi karbon dan menghemat energi",
+          "C. Agar alatnya tidak cepat panas"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "levelName": "Level 13: Tim SAR Air",
+      "quests": [
+        {
+          "id": "tutup_keran",
+          "description": "Laporkan 3 Keran Hydrant bocor",
+          "targetAmount": 3,
+          "rewardEnv": 4,
+          "rewardKnowledgePoints": 20
+        }
+      ],
+      "reflection": {
+        "question": "Berapa banyak air yang terbuang sia-sia dari keran yang terus menetes seharian?",
+        "options": [
+          "A. Bisa mencapai belasan liter",
+          "B. Hanya beberapa tetes",
+          "C. Air tidak akan habis"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "levelName": "Level 14: Ujian Pra-Final",
+      "quests": [
+        {
+          "id": "pungut_sampah",
+          "description": "Pungut 4 Sampah di taman",
+          "targetAmount": 4,
+          "rewardEnv": 2,
+          "rewardKnowledgePoints": 15
+        },
+        {
+          "id": "matikan_lampu",
+          "description": "Laporkan 3 Lampu rusak ",
+          "targetAmount": 3,
+          "rewardEnv": 2,
+          "rewardKnowledgePoints": 15
+        },
+        {
+          "id": "tutup_keran",
+          "description": "Laporkan 2 Keran bocor",
+          "targetAmount": 2,
+          "rewardEnv": 2,
+          "rewardKnowledgePoints": 15
+        },
+        {
+          "id": "belajar_sdg",
+          "description": "Pelajari 1 Modul SDG di rak Kelas",
+          "targetAmount": 1,
+          "rewardEnv": 2,
+          "rewardKnowledgePoints": 25
+        }
+      ],
+      "reflection": {
+        "question": "Apa dampak membiarkan sampah berserakan di fasilitas umum?",
+        "options": [
+          "A. Menyebabkan penyakit dan merusak pemandangan",
+          "B. Menjadi hiasan jalan",
+          "C. Membantu tanaman tumbuh"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "levelName": "Level 15: Ujian Akhir Remaja",
+      "quests": [
+        {
+          "id": "pungut_sampah",
+          "description": "Pungut 6 Sampah di taman",
+          "targetAmount": 6,
+          "rewardEnv": 5,
+          "rewardKnowledgePoints": 25
+        },
+        {
+          "id": "matikan_lampu",
+          "description": "Laporkan 4 Lampu rusak ",
+          "targetAmount": 4,
+          "rewardEnv": 5,
+          "rewardKnowledgePoints": 25
+        },
+        {
+          "id": "tegur_npc",
+          "description": "Tegur 2 Warga",
+          "targetAmount": 2,
+          "rewardEnv": 5,
+          "rewardKnowledgePoints": 25
+        },
+        {
+          "id": "belajar_sdg",
+          "description": "Pahami Tujuan SDG dari rak buku",
+          "targetAmount": 1,
+          "rewardEnv": 5,
+          "rewardKnowledgePoints": 50
+        }
+      ],
+      "reflection": {
+        "question": "Apa dampak membiarkan sampah berserakan di fasilitas umum?",
+        "options": [
+          "A. Menyebabkan penyakit dan merusak pemandangan",
+          "B. Menjadi hiasan jalan",
+          "C. Membantu tanaman tumbuh"
+        ],
+        "correctIndex": 0
+      }
+    }
+  ],
+  "dewasaLevels": [
+    {
+      "levelName": "Level 1: Morning Routine",
+      "quests": [
+        {
+          "id": "matikan_elektronik",
+          "description": "Matikan 2 Elektronik (TV & AC kamar) yang menyala semalaman.",
+          "targetAmount": 2,
+          "rewardEnv": 5,
+          "rewardKnowledgePoints": 20
+        }
+      ],
+      "reflection": {
+        "question": "Mengapa kita perlu mematikan alat elektronik atau lampu yang tidak terpakai?",
+        "options": [
+          "A. Agar tagihan listrik lebih murah",
+          "B. Mengurangi emisi karbon dan menghemat energi",
+          "C. Agar alatnya tidak cepat panas"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "levelName": "Level 2: Cek Toilet",
+      "quests": [
+        {
+          "id": "tutup_keran",
+          "description": "Tutup 1 Keran air yang bocor di wastafel.",
+          "targetAmount": 1,
+          "rewardEnv": 5,
+          "rewardKnowledgePoints": 15
+        }
+      ],
+      "reflection": {
+        "question": "Berapa banyak air yang terbuang sia-sia dari keran yang terus menetes seharian?",
+        "options": [
+          "A. Bisa mencapai belasan liter",
+          "B. Hanya beberapa tetes",
+          "C. Air tidak akan habis"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "levelName": "Level 3: Sisa Sarapan",
+      "quests": [
+        {
+          "id": "pilah_sampah_apartemen",
+          "description": "Pilah 3 Sampah sisa sarapan (Campuran Organik/Plastik).",
+          "targetAmount": 3,
+          "rewardEnv": 5,
+          "rewardKnowledgePoints": 15
+        }
+      ],
+      "reflection": {
+        "question": "Apa pesan moral yang bisa kita ambil dari aksi lingkungan hari ini?",
+        "options": [
+          "A. Tindakan kecil sangat berarti bagi bumi",
+          "B. Kebersihan adalah tanggung jawab petugas kebersihan saja",
+          "C. Tidak ada gunanya"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "levelName": "Level 4: Perjalanan Kota",
+      "quests": [
+        {
+          "id": "pungut_sampah",
+          "description": "Pungut 3 Sampah yang berserakan di trotoar.",
+          "targetAmount": 3,
+          "rewardEnv": 5,
+          "rewardKnowledgePoints": 15
+        }
+      ],
+      "reflection": {
+        "question": "Apa dampak membiarkan sampah berserakan di fasilitas umum?",
+        "options": [
+          "A. Menyebabkan penyakit dan merusak pemandangan",
+          "B. Menjadi hiasan jalan",
+          "C. Membantu tanaman tumbuh"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "levelName": "Level 5: Warga Bandel",
+      "quests": [
+        {
+          "id": "tegur_npc",
+          "description": "Tegur 2 NPC warga yang membuang sampah sembarangan di sekitar halte bus.",
+          "targetAmount": 2,
+          "rewardEnv": 10,
+          "rewardKnowledgePoints": 20
+        }
+      ],
+      "reflection": {
+        "question": "Bagaimana cara terbaik menegur orang yang membuang sampah sembarangan?",
+        "options": [
+          "A. Menegur dengan sopan dan memberikan contoh baik",
+          "B. Memarahinya di depan umum",
+          "C. Mengabaikannya"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "levelName": "Level 6: Jam Istirahat",
+      "quests": [
+        {
+          "id": "matikan_pc",
+          "description": "Matikan 3 PC/Printer yang ditinggal menyala oleh rekan kerja.",
+          "targetAmount": 3,
+          "rewardEnv": 10,
+          "rewardKnowledgePoints": 25
+        }
+      ],
+      "reflection": {
+        "question": "Apa pesan moral yang bisa kita ambil dari aksi lingkungan hari ini?",
+        "options": [
+          "A. Tindakan kecil sangat berarti bagi bumi",
+          "B. Kebersihan adalah tanggung jawab petugas kebersihan saja",
+          "C. Tidak ada gunanya"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "levelName": "Level 7: Area Printer",
+      "quests": [
+        {
+          "id": "pungut_sampah_kertas",
+          "description": "Pilah 4 Sampah Gelas/Botol di Pantry.",
+          "targetAmount": 4,
+          "rewardEnv": 10,
+          "rewardKnowledgePoints": 25
+        }
+      ],
+      "reflection": {
+        "question": "Apa dampak membiarkan sampah berserakan di fasilitas umum?",
+        "options": [
+          "A. Menyebabkan penyakit dan merusak pemandangan",
+          "B. Menjadi hiasan jalan",
+          "C. Membantu tanaman tumbuh"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "levelName": "Level 8: Toilet Kantor",
+      "quests": [
+        {
+          "id": "tutup_keran",
+          "description": "Tutup 2 Keran air yang bocor parah.",
+          "targetAmount": 2,
+          "rewardEnv": 10,
+          "rewardKnowledgePoints": 25
+        }
+      ],
+      "reflection": {
+        "question": "Berapa banyak air yang terbuang sia-sia dari keran yang terus menetes seharian?",
+        "options": [
+          "A. Bisa mencapai belasan liter",
+          "B. Hanya beberapa tetes",
+          "C. Air tidak akan habis"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "levelName": "Level 9: Pantry",
+      "quests": [
+        {
+          "id": "pungut_sampah_plastik",
+          "description": "Pilah 3 Sampah Plastik di area Pantry.",
+          "targetAmount": 3,
+          "rewardEnv": 10,
+          "rewardKnowledgePoints": 25
+        }
+      ],
+      "reflection": {
+        "question": "Apa dampak membiarkan sampah berserakan di fasilitas umum?",
+        "options": [
+          "A. Menyebabkan penyakit dan merusak pemandangan",
+          "B. Menjadi hiasan jalan",
+          "C. Membantu tanaman tumbuh"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "levelName": "Level 10: Sore Hari",
+      "quests": [
+        {
+          "id": "matikan_elektronik",
+          "description": "Matikan 4 Elektronik utama sebelum jam pulang reguler.",
+          "targetAmount": 4,
+          "rewardEnv": 10,
+          "rewardKnowledgePoints": 25
+        }
+      ],
+      "reflection": {
+        "question": "Mengapa kita perlu mematikan alat elektronik atau lampu yang tidak terpakai?",
+        "options": [
+          "A. Agar tagihan listrik lebih murah",
+          "B. Mengurangi emisi karbon dan menghemat energi",
+          "C. Agar alatnya tidak cepat panas"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "levelName": "Level 11: Kota Malam",
+      "quests": [
+        {
+          "id": "tutup_keran",
+          "description": "Perbaiki / Tutup 3 Hidran (Keran air) yang bocor di pinggir jalan.",
+          "targetAmount": 3,
+          "rewardEnv": 15,
+          "rewardKnowledgePoints": 30
+        }
+      ],
+      "reflection": {
+        "question": "Berapa banyak air yang terbuang sia-sia dari keran yang terus menetes seharian?",
+        "options": [
+          "A. Bisa mencapai belasan liter",
+          "B. Hanya beberapa tetes",
+          "C. Air tidak akan habis"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "levelName": "Level 12: Taman Sepi",
+      "quests": [
+        {
+          "id": "pungut_sampah",
+          "description": "Pungut 4 Sampah yang berserakan di sekitar apartemen yang gelap.",
+          "targetAmount": 4,
+          "rewardEnv": 15,
+          "rewardKnowledgePoints": 30
+        }
+      ],
+      "reflection": {
+        "question": "Apa dampak membiarkan sampah berserakan di fasilitas umum?",
+        "options": [
+          "A. Menyebabkan penyakit dan merusak pemandangan",
+          "B. Menjadi hiasan jalan",
+          "C. Membantu tanaman tumbuh"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "levelName": "Level 13: Lembur di Rumah",
+      "quests": [
+        {
+          "id": "matikan_elektronik",
+          "description": "Matikan 3 Elektronik yang menyala tidak perlu di apartemen.",
+          "targetAmount": 3,
+          "rewardEnv": 15,
+          "rewardKnowledgePoints": 30
+        }
+      ],
+      "reflection": {
+        "question": "Mengapa kita perlu mematikan alat elektronik atau lampu yang tidak terpakai?",
+        "options": [
+          "A. Agar tagihan listrik lebih murah",
+          "B. Mengurangi emisi karbon dan menghemat energi",
+          "C. Agar alatnya tidak cepat panas"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "levelName": "Level 14: Toilet Apartemen",
+      "quests": [
+        {
+          "id": "tutup_keran",
+          "description": "Tutup 1 Keran air yang jebol saat ditinggal kerja.",
+          "targetAmount": 1,
+          "rewardEnv": 15,
+          "rewardKnowledgePoints": 30
+        }
+      ],
+      "reflection": {
+        "question": "Berapa banyak air yang terbuang sia-sia dari keran yang terus menetes seharian?",
+        "options": [
+          "A. Bisa mencapai belasan liter",
+          "B. Hanya beberapa tetes",
+          "C. Air tidak akan habis"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "levelName": "Level 15: Bersih-bersih Akhir (Final)",
+      "quests": [
+        {
+          "id": "pilah_sampah_apartemen",
+          "description": "Pilah 5 Sampah sisa makan malam.",
+          "targetAmount": 5,
+          "rewardEnv": 20,
+          "rewardKnowledgePoints": 40
+        }
+      ],
+      "reflection": {
+        "question": "Apa pesan moral yang bisa kita ambil dari aksi lingkungan hari ini?",
+        "options": [
+          "A. Tindakan kecil sangat berarti bagi bumi",
+          "B. Kebersihan adalah tanggung jawab petugas kebersihan saja",
+          "C. Tidak ada gunanya"
+        ],
+        "correctIndex": 0
+      }
+    }
+  ],
+  "gubernurLevels": [
+    {
+      "levelName": "Bulan 1: Krisis Sampah Awal",
+      "quests": [
+        {
+          "id": "kebijakan_tpa",
+          "description": "Periksa Laporan TPA di Maket Kota.",
+          "targetAmount": 1,
+          "rewardEnv": 0,
+          "rewardKnowledgePoints": 50
+        }
+      ],
+      "reflection": {
+        "question": "Apa pesan moral yang bisa kita ambil dari aksi lingkungan hari ini?",
+        "options": [
+          "A. Tindakan kecil sangat berarti bagi bumi",
+          "B. Kebersihan adalah tanggung jawab petugas kebersihan saja",
+          "C. Tidak ada gunanya"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "levelName": "Bulan 2: Kemacetan Parah",
+      "quests": [
+        {
+          "id": "kebijakan_transportasi",
+          "description": "Periksa Laporan Kemacetan di Maket Kota.",
+          "targetAmount": 1,
+          "rewardEnv": 0,
+          "rewardKnowledgePoints": 50
+        }
+      ],
+      "reflection": {
+        "question": "Apa pesan moral yang bisa kita ambil dari aksi lingkungan hari ini?",
+        "options": [
+          "A. Tindakan kecil sangat berarti bagi bumi",
+          "B. Kebersihan adalah tanggung jawab petugas kebersihan saja",
+          "C. Tidak ada gunanya"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "levelName": "Bulan 3: Polusi Industri",
+      "quests": [
+        {
+          "id": "kebijakan_energi",
+          "description": "Periksa Laporan Polusi Udara di Maket Kota.",
+          "targetAmount": 1,
+          "rewardEnv": 0,
+          "rewardKnowledgePoints": 50
+        }
+      ],
+      "reflection": {
+        "question": "Apa pesan moral yang bisa kita ambil dari aksi lingkungan hari ini?",
+        "options": [
+          "A. Tindakan kecil sangat berarti bagi bumi",
+          "B. Kebersihan adalah tanggung jawab petugas kebersihan saja",
+          "C. Tidak ada gunanya"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "levelName": "Bulan 4: Pemukiman Kumuh Sungai",
+      "quests": [
+        {
+          "id": "kebijakan_sungai",
+          "description": "Periksa Laporan Sanitasi Sungai di Maket Kota.",
+          "targetAmount": 1,
+          "rewardEnv": 0,
+          "rewardKnowledgePoints": 50
+        }
+      ],
+      "reflection": {
+        "question": "Apa pesan moral yang bisa kita ambil dari aksi lingkungan hari ini?",
+        "options": [
+          "A. Tindakan kecil sangat berarti bagi bumi",
+          "B. Kebersihan adalah tanggung jawab petugas kebersihan saja",
+          "C. Tidak ada gunanya"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "levelName": "Bulan 5: Aturan Sampah Plastik",
+      "quests": [
+        {
+          "id": "kebijakan_plastik",
+          "description": "Sahkan Peraturan Daerah tentang Plastik di Maket Kota.",
+          "targetAmount": 1,
+          "rewardEnv": 0,
+          "rewardKnowledgePoints": 50
+        }
+      ],
+      "reflection": {
+        "question": "Apa pesan moral yang bisa kita ambil dari aksi lingkungan hari ini?",
+        "options": [
+          "A. Tindakan kecil sangat berarti bagi bumi",
+          "B. Kebersihan adalah tanggung jawab petugas kebersihan saja",
+          "C. Tidak ada gunanya"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "levelName": "Bulan 6: Subsidi Daur Ulang",
+      "quests": [
+        {
+          "id": "kebijakan_subsidi_sampah",
+          "description": "Periksa Anggaran Subsidi Pengolahan Sampah.",
+          "targetAmount": 1,
+          "rewardEnv": 0,
+          "rewardKnowledgePoints": 50
+        }
+      ],
+      "reflection": {
+        "question": "Apa pesan moral yang bisa kita ambil dari aksi lingkungan hari ini?",
+        "options": [
+          "A. Tindakan kecil sangat berarti bagi bumi",
+          "B. Kebersihan adalah tanggung jawab petugas kebersihan saja",
+          "C. Tidak ada gunanya"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "levelName": "Bulan 7: Pajak Kendaraan",
+      "quests": [
+        {
+          "id": "kebijakan_pajak_mobil",
+          "description": "Tinjau Kebijakan Pajak Emisi Kendaraan.",
+          "targetAmount": 1,
+          "rewardEnv": 0,
+          "rewardKnowledgePoints": 50
+        }
+      ],
+      "reflection": {
+        "question": "Apa pesan moral yang bisa kita ambil dari aksi lingkungan hari ini?",
+        "options": [
+          "A. Tindakan kecil sangat berarti bagi bumi",
+          "B. Kebersihan adalah tanggung jawab petugas kebersihan saja",
+          "C. Tidak ada gunanya"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "levelName": "Bulan 8: Energi Skala Besar",
+      "quests": [
+        {
+          "id": "kebijakan_pltb",
+          "description": "Tinjau Proposal Pembangkit Listrik Baru.",
+          "targetAmount": 1,
+          "rewardEnv": 0,
+          "rewardKnowledgePoints": 50
+        }
+      ],
+      "reflection": {
+        "question": "Apa pesan moral yang bisa kita ambil dari aksi lingkungan hari ini?",
+        "options": [
+          "A. Tindakan kecil sangat berarti bagi bumi",
+          "B. Kebersihan adalah tanggung jawab petugas kebersihan saja",
+          "C. Tidak ada gunanya"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "levelName": "Bulan 9: Penjernihan Muara Sungai",
+      "quests": [
+        {
+          "id": "kebijakan_muara",
+          "description": "Cek Kualitas Air di Muara Sungai.",
+          "targetAmount": 1,
+          "rewardEnv": 0,
+          "rewardKnowledgePoints": 50
+        }
+      ],
+      "reflection": {
+        "question": "Apa pesan moral yang bisa kita ambil dari aksi lingkungan hari ini?",
+        "options": [
+          "A. Tindakan kecil sangat berarti bagi bumi",
+          "B. Kebersihan adalah tanggung jawab petugas kebersihan saja",
+          "C. Tidak ada gunanya"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "levelName": "Bulan 10: Kampanye SDG Massal",
+      "quests": [
+        {
+          "id": "kebijakan_edukasi",
+          "description": "Tentukan Anggaran Edukasi Publik.",
+          "targetAmount": 1,
+          "rewardEnv": 0,
+          "rewardKnowledgePoints": 50
+        }
+      ],
+      "reflection": {
+        "question": "Apa pesan moral yang bisa kita ambil dari aksi lingkungan hari ini?",
+        "options": [
+          "A. Tindakan kecil sangat berarti bagi bumi",
+          "B. Kebersihan adalah tanggung jawab petugas kebersihan saja",
+          "C. Tidak ada gunanya"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "levelName": "Bulan 11: Smart Grid Listrik",
+      "quests": [
+        {
+          "id": "kebijakan_smartgrid",
+          "description": "Tinjau Modernisasi Distribusi Listrik Kota.",
+          "targetAmount": 1,
+          "rewardEnv": 0,
+          "rewardKnowledgePoints": 50
+        }
+      ],
+      "reflection": {
+        "question": "Apa pesan moral yang bisa kita ambil dari aksi lingkungan hari ini?",
+        "options": [
+          "A. Tindakan kecil sangat berarti bagi bumi",
+          "B. Kebersihan adalah tanggung jawab petugas kebersihan saja",
+          "C. Tidak ada gunanya"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "levelName": "Bulan 12: Low Emission Zone",
+      "quests": [
+        {
+          "id": "kebijakan_lez",
+          "description": "Tinjau Kebijakan Pusat Kota Bebas Emisi.",
+          "targetAmount": 1,
+          "rewardEnv": 0,
+          "rewardKnowledgePoints": 50
+        }
+      ],
+      "reflection": {
+        "question": "Apa pesan moral yang bisa kita ambil dari aksi lingkungan hari ini?",
+        "options": [
+          "A. Tindakan kecil sangat berarti bagi bumi",
+          "B. Kebersihan adalah tanggung jawab petugas kebersihan saja",
+          "C. Tidak ada gunanya"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "levelName": "Bulan 13: Aturan Atap Hijau",
+      "quests": [
+        {
+          "id": "kebijakan_greenroof",
+          "description": "Sahkan IMB (Izin Gedung) Baru Ramah Lingkungan.",
+          "targetAmount": 1,
+          "rewardEnv": 0,
+          "rewardKnowledgePoints": 50
+        }
+      ],
+      "reflection": {
+        "question": "Apa pesan moral yang bisa kita ambil dari aksi lingkungan hari ini?",
+        "options": [
+          "A. Tindakan kecil sangat berarti bagi bumi",
+          "B. Kebersihan adalah tanggung jawab petugas kebersihan saja",
+          "C. Tidak ada gunanya"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "levelName": "Bulan 14: Investasi Kendaraan Listrik",
+      "quests": [
+        {
+          "id": "kebijakan_ev",
+          "description": "Tinjau Pengadaan Armada Bus Kota.",
+          "targetAmount": 1,
+          "rewardEnv": 0,
+          "rewardKnowledgePoints": 50
+        }
+      ],
+      "reflection": {
+        "question": "Apa pesan moral yang bisa kita ambil dari aksi lingkungan hari ini?",
+        "options": [
+          "A. Tindakan kecil sangat berarti bagi bumi",
+          "B. Kebersihan adalah tanggung jawab petugas kebersihan saja",
+          "C. Tidak ada gunanya"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "levelName": "Bulan 15: Mega Proyek Terakhir",
+      "quests": [
+        {
+          "id": "kebijakan_tamankota",
+          "description": "Resmikan Proyek Pembangunan Terpadu Kota.",
+          "targetAmount": 1,
+          "rewardEnv": 0,
+          "rewardKnowledgePoints": 100
+        }
+      ],
+      "reflection": {
+        "question": "Apa pesan moral yang bisa kita ambil dari aksi lingkungan hari ini?",
+        "options": [
+          "A. Tindakan kecil sangat berarti bagi bumi",
+          "B. Kebersihan adalah tanggung jawab petugas kebersihan saja",
+          "C. Tidak ada gunanya"
+        ],
+        "correctIndex": 0
+      }
+    }
+  ]
+}

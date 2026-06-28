@@ -3,69 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SustainCity - Admin Dashboard</title>
+    <title>SustainCity - Premium Admin Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { font-family: 'Poppins', sans-serif; background-color: #f1f5f9; }
-        .tab-btn.active { border-bottom: 2px solid #10b981; color: #10b981; font-weight: 600; }
-        .tab-content { display: none; }
-        .tab-content.active { display: block; }
+        body { font-family: 'Outfit', sans-serif; background-color: #f8fafc; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .tab-content { display: none; opacity: 0; transition: opacity 0.3s ease; }
+        .tab-content.active { display: block; opacity: 1; }
+        .sidebar-item.active {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white !important;
+            box-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.39);
+        }
+        .sidebar-item.active i { color: white !important; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
     </style>
 </head>
-<body class="text-slate-800">
+<body class="text-slate-800 flex h-screen overflow-hidden">
 
-    <div class="min-h-screen flex flex-col">
-        <!-- Navbar -->
-        <nav class="bg-emerald-600 text-white p-4 shadow-md">
-            <div class="container mx-auto flex justify-between items-center">
-                <h1 class="text-2xl font-bold"><i class="fa-solid fa-leaf mr-2"></i> SustainCity Admin</h1>
-                <div class="text-sm">Server: Online</div>
+    <!-- Sidebar -->
+    <aside class="w-64 bg-white border-r border-slate-200 flex flex-col justify-between hidden md:flex z-10 shadow-sm relative">
+        <div>
+            <div class="h-20 flex items-center px-8 border-b border-slate-100">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center text-white shadow-lg shadow-emerald-200">
+                        <i class="fa-solid fa-leaf text-xl"></i>
+                    </div>
+                    <h1 class="text-xl font-bold tracking-tight text-slate-800">Sustain<span class="text-emerald-600">City</span></h1>
+                </div>
             </div>
-        </nav>
-
-        <!-- Main Content -->
-        <div class="container mx-auto flex-grow p-6">
             
-            <!-- Tabs -->
-            <div class="flex border-b border-gray-300 mb-6">
-                <button class="tab-btn active px-4 py-2 text-gray-500 hover:text-emerald-600" onclick="switchTab('monitoring')">
-                    <i class="fa-solid fa-chart-line mr-1"></i> Monitoring Pemain
+            <div class="p-4 space-y-2 mt-4">
+                <p class="px-4 text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Main Menu</p>
+                <button onclick="switchTab('monitoring', this)" class="sidebar-item active w-full flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 transition-all font-medium">
+                    <i class="fa-solid fa-chart-pie text-white w-5"></i> Dashboard
                 </button>
-                <button class="tab-btn px-4 py-2 text-gray-500 hover:text-emerald-600" onclick="switchTab('tasks')">
-                    <i class="fa-solid fa-list-check mr-1"></i> Modifikasi Misi (Task)
+                <button onclick="switchTab('tasks', this)" class="sidebar-item w-full flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 transition-all font-medium">
+                    <i class="fa-solid fa-list-check text-slate-400 w-5"></i> Modifikasi Misi
                 </button>
             </div>
+        </div>
+        <div class="p-4 border-t border-slate-100">
+            <div class="flex items-center gap-3 px-4 py-3 bg-slate-50 rounded-xl">
+                <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.8)]"></div>
+                <div>
+                    <span class="text-sm font-bold text-slate-700 block leading-tight">Server Online</span>
+                    <span class="text-xs text-slate-400 font-medium">Sync Active</span>
+                </div>
+            </div>
+        </div>
+    </aside>
 
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col h-screen overflow-hidden bg-slate-50 relative">
+        <!-- Header -->
+        <header class="h-20 bg-white/80 backdrop-blur-md border-b border-slate-200 flex items-center justify-between px-8 z-10 sticky top-0">
+            <h2 class="text-2xl font-bold text-slate-800" id="headerTitle">Dashboard Overview</h2>
+            <div class="flex items-center gap-4">
+                <div class="hidden md:flex items-center bg-slate-100 px-4 py-2 rounded-full border border-slate-200 transition-colors focus-within:bg-white focus-within:border-emerald-300 focus-within:ring-2 focus-within:ring-emerald-100">
+                    <i class="fa-solid fa-search text-slate-400 mr-2"></i>
+                    <input type="text" placeholder="Cari pemain..." class="bg-transparent border-none outline-none text-sm w-48 text-slate-700 font-medium">
+                </div>
+                <div class="w-10 h-10 rounded-full bg-indigo-100 border-2 border-white shadow-md flex items-center justify-center text-indigo-600 font-bold hover:scale-110 transition-transform cursor-pointer">
+                    AD
+                </div>
+            </div>
+        </header>
+
+        <!-- Scrollable Content -->
+        <div class="flex-1 overflow-y-auto p-8">
+            
             <!-- Tab 1: Monitoring -->
-            <div id="monitoring" class="tab-content active">
-                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-                    <div class="p-4 bg-gray-50 border-b flex justify-between items-center">
-                        <h2 class="font-semibold text-lg">Data Pemain Real-time</h2>
-                        <div class="flex gap-2">
-                            <button onclick="deletePlayers()" class="text-red-600 hover:bg-red-50 px-3 py-1 rounded transition border border-red-200">
-                                <i class="fa-solid fa-trash"></i> Hapus Semua Data
+            <div id="monitoring" class="tab-content active max-w-7xl mx-auto">
+                
+                <!-- Metric Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <!-- Card 1 -->
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:-translate-y-1 hover:shadow-md transition-all relative overflow-hidden group cursor-default">
+                        <div class="absolute -right-6 -top-6 w-24 h-24 bg-indigo-50 rounded-full group-hover:scale-125 transition-transform duration-500"></div>
+                        <div class="relative z-10">
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="text-slate-500 font-semibold text-sm uppercase tracking-wider">Total Pemain</h3>
+                                <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-lg"><i class="fa-solid fa-users"></i></div>
+                            </div>
+                            <h2 class="text-4xl font-black text-slate-800" id="statTotalPlayers">0</h2>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:-translate-y-1 hover:shadow-md transition-all relative overflow-hidden group cursor-default">
+                        <div class="absolute -right-6 -top-6 w-24 h-24 bg-emerald-50 rounded-full group-hover:scale-125 transition-transform duration-500"></div>
+                        <div class="relative z-10">
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="text-slate-500 font-semibold text-sm uppercase tracking-wider">Rata-rata Env</h3>
+                                <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-lg"><i class="fa-solid fa-tree"></i></div>
+                            </div>
+                            <h2 class="text-4xl font-black text-slate-800" id="statAvgEnv">0</h2>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:-translate-y-1 hover:shadow-md transition-all relative overflow-hidden group cursor-default">
+                        <div class="absolute -right-6 -top-6 w-24 h-24 bg-blue-50 rounded-full group-hover:scale-125 transition-transform duration-500"></div>
+                        <div class="relative z-10">
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="text-slate-500 font-semibold text-sm uppercase tracking-wider">Rata-rata Social</h3>
+                                <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-lg"><i class="fa-solid fa-handshake"></i></div>
+                            </div>
+                            <h2 class="text-4xl font-black text-slate-800" id="statAvgSoc">0</h2>
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:-translate-y-1 hover:shadow-md transition-all relative overflow-hidden group cursor-default">
+                        <div class="absolute -right-6 -top-6 w-24 h-24 bg-amber-50 rounded-full group-hover:scale-125 transition-transform duration-500"></div>
+                        <div class="relative z-10">
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="text-slate-500 font-semibold text-sm uppercase tracking-wider">Rata-rata Eco</h3>
+                                <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-lg"><i class="fa-solid fa-coins"></i></div>
+                            </div>
+                            <h2 class="text-4xl font-black text-slate-800" id="statAvgEco">0</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Table Section -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                    <div class="p-6 border-b border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-4 bg-slate-50/50">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800">Daftar Analisis Pemain</h3>
+                            <p class="text-sm text-slate-500 font-medium mt-1">Data dikumpulkan secara real-time dari aplikasi game</p>
+                        </div>
+                        <div class="flex gap-3">
+                            <button onclick="loadPlayers()" class="px-5 py-2.5 bg-white border border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700 rounded-xl font-bold transition-all text-sm flex items-center gap-2 shadow-sm">
+                                <i class="fa-solid fa-rotate-right"></i> Muat Ulang
                             </button>
-                            <button onclick="loadPlayers()" class="text-emerald-600 hover:bg-emerald-50 px-3 py-1 rounded transition border border-emerald-200">
-                                <i class="fa-solid fa-rotate-right"></i> Refresh
+                            <button onclick="deletePlayers()" class="px-5 py-2.5 bg-red-50 hover:bg-red-100 text-red-600 rounded-xl font-bold transition-all text-sm flex items-center gap-2 border border-red-100 shadow-sm">
+                                <i class="fa-solid fa-trash"></i> Reset Data
                             </button>
                         </div>
                     </div>
                     <div class="overflow-x-auto">
-                        <table class="w-full text-sm text-left">
-                            <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                        <table class="w-full text-sm text-left whitespace-nowrap">
+                            <thead class="text-xs text-slate-400 uppercase tracking-wider bg-white border-b border-slate-100">
                                 <tr>
-                                    <th class="px-6 py-3">Nama Pemain</th>
-                                    <th class="px-6 py-3 font-bold text-purple-600">XP (Knowledge)</th>
-                                    <th class="px-6 py-3 text-green-600">Environment</th>
-                                    <th class="px-6 py-3 text-blue-600">Social</th>
-                                    <th class="px-6 py-3 text-yellow-600">Economy</th>
-                                    <th class="px-6 py-3">Waktu Bermain</th>
-                                    <th class="px-6 py-3 text-center">Aksi</th>
+                                    <th class="px-6 py-5 font-bold">Pemain</th>
+                                    <th class="px-6 py-5 font-bold">XP (Knowledge)</th>
+                                    <th class="px-6 py-5 font-bold">Environment</th>
+                                    <th class="px-6 py-5 font-bold">Social</th>
+                                    <th class="px-6 py-5 font-bold">Economy</th>
+                                    <th class="px-6 py-5 font-bold">Playtime</th>
+                                    <th class="px-6 py-5 font-bold text-right">Aksi</th>
                                 </tr>
                             </thead>
-                            <tbody id="playerTableBody">
+                            <tbody id="playerTableBody" class="divide-y divide-slate-100">
                                 <!-- Data will be loaded here -->
                             </tbody>
                         </table>
@@ -74,50 +174,146 @@
             </div>
 
             <!-- Tab 2: Modifikasi Misi -->
-            <div id="tasks" class="tab-content">
-                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                    <div class="flex justify-between items-center mb-4">
-                        <div>
-                            <h2 class="font-semibold text-lg">Editor Narasi Misi</h2>
-                            <p class="text-xs text-amber-600 mt-1"><i class="fa-solid fa-triangle-exclamation"></i> Hanya deskripsi yang dapat diubah. Struktur quest (ID & target) terikat ke gameplay.</p>
-                        </div>
-                        <div class="flex gap-2">
-                            <button onclick="loadLevels()" class="text-gray-600 hover:bg-gray-100 px-3 py-1 rounded border">
-                                Reset
-                            </button>
-                            <button onclick="saveLevels()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-1 rounded font-medium shadow-sm transition">
-                                Simpan Perubahan
-                            </button>
-                        </div>
-                    </div>
-                    <div id="editorStatus" class="mb-4 text-sm hidden"></div>
+            <div id="tasks" class="tab-content max-w-5xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
                     
-                    <!-- Sub-tabs for Roles -->
-                    <div class="flex gap-2 mb-4 border-b border-gray-200 pb-2">
-                        <button class="role-tab px-3 py-1 text-emerald-600 font-bold border-b-2 border-emerald-600" onclick="switchRoleTab('remajaLevels')">Remaja</button>
-                        <button class="role-tab px-3 py-1 text-gray-500 hover:text-emerald-600 border-b-2 border-transparent" onclick="switchRoleTab('dewasaLevels')">Dewasa</button>
-                        <button class="role-tab px-3 py-1 text-gray-500 hover:text-emerald-600 border-b-2 border-transparent" onclick="switchRoleTab('gubernurLevels')">Gubernur</button>
+                    <div class="p-6 border-b border-slate-100 bg-slate-50/50 flex flex-col md:flex-row justify-between items-center gap-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800">Editor Narasi Misi</h3>
+                            <p class="text-sm font-medium text-slate-500 mt-1"><i class="fa-solid fa-info-circle text-emerald-500 mr-1"></i> Ubah deskripsi teks misi yang akan muncul di antarmuka game pemain.</p>
+                        </div>
+                        <div class="flex gap-3">
+                            <button onclick="loadLevels()" class="px-5 py-2.5 bg-white border border-slate-200 hover:bg-slate-50 text-slate-600 rounded-xl font-bold transition-colors text-sm shadow-sm">
+                                Batal
+                            </button>
+                            <button onclick="saveLevels()" class="px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white rounded-xl font-bold transition-all text-sm shadow-md shadow-emerald-200 hover:shadow-lg flex items-center gap-2">
+                                <i class="fa-solid fa-cloud-arrow-up"></i> Simpan Perubahan
+                            </button>
+                        </div>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="levelsEditorContainer">
-                        <!-- Editor form will be loaded here -->
+                    <div id="editorStatus" class="mx-6 mt-6 p-4 rounded-xl text-sm hidden font-bold border"></div>
+                    
+                    <!-- Sub-tabs for Roles -->
+                    <div class="px-8 pt-6 flex gap-6 border-b border-slate-100 bg-white">
+                        <button class="role-tab pb-4 text-emerald-600 font-bold border-b-2 border-emerald-500 transition-colors tracking-wide" onclick="switchRoleTab('remajaLevels', this)">FASE REMAJA</button>
+                        <button class="role-tab pb-4 text-slate-400 hover:text-slate-600 font-semibold border-b-2 border-transparent transition-colors tracking-wide" onclick="switchRoleTab('dewasaLevels', this)">FASE DEWASA</button>
+                        <button class="role-tab pb-4 text-slate-400 hover:text-slate-600 font-semibold border-b-2 border-transparent transition-colors tracking-wide" onclick="switchRoleTab('gubernurLevels', this)">FASE GUBERNUR</button>
+                    </div>
+
+                    <div class="p-8 bg-slate-50/30">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8" id="levelsEditorContainer">
+                            <!-- Editor form will be loaded here -->
+                        </div>
                     </div>
                 </div>
             </div>
 
         </div>
+    </main>
+
+    <!-- Premium Player Detail Modal -->
+    <div id="detailModal" class="fixed inset-0 bg-slate-900/40 backdrop-blur-md hidden flex items-center justify-center z-50 transition-opacity">
+        <div class="bg-white rounded-3xl shadow-2xl w-full max-w-4xl mx-4 max-h-[90vh] flex flex-col overflow-hidden border border-slate-100 transform transition-transform scale-100">
+            
+            <!-- Modal Header (Gradient) -->
+            <div class="px-10 py-8 bg-gradient-to-br from-slate-800 to-slate-900 flex justify-between items-center relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-white opacity-5 rounded-full blur-3xl"></div>
+                <div class="absolute -left-10 -top-10 w-40 h-40 bg-emerald-500 opacity-10 rounded-full blur-2xl"></div>
+                <div class="relative z-10">
+                    <span class="bg-white/10 text-emerald-300 font-bold text-xs tracking-widest uppercase px-3 py-1 rounded-full mb-3 inline-block backdrop-blur-sm border border-white/10">Laporan Komprehensif</span>
+                    <h3 class="text-3xl font-black text-white flex items-center gap-4">
+                        <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-md border border-white/10">
+                            <i class="fa-solid fa-user-astronaut text-xl text-white"></i>
+                        </div>
+                        <span id="modalPlayerName">Player_Name</span>
+                    </h3>
+                </div>
+                <button onclick="closeModal()" class="relative z-10 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 hover:scale-105 text-white flex items-center justify-center transition-all border border-white/10">
+                    <i class="fa-solid fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- Modal Body -->
+            <div class="p-10 overflow-y-auto flex-1 bg-slate-50">
+                
+                <h4 class="text-sm font-black text-slate-400 mb-5 uppercase tracking-widest">Metrik Indikator Kota</h4>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-5 mb-10">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-purple-100/50 hover:shadow-md transition-shadow relative overflow-hidden group">
+                        <div class="absolute -right-4 -bottom-4 opacity-5 text-purple-600 text-6xl group-hover:scale-110 transition-transform duration-500"><i class="fa-solid fa-brain"></i></div>
+                        <div class="text-xs text-purple-500 font-bold mb-2 tracking-wider">KNOWLEDGE (XP)</div>
+                        <div class="text-4xl font-black text-slate-800" id="modalXP">0</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-emerald-100/50 hover:shadow-md transition-shadow relative overflow-hidden group">
+                        <div class="absolute -right-4 -bottom-4 opacity-5 text-emerald-600 text-6xl group-hover:scale-110 transition-transform duration-500"><i class="fa-solid fa-tree"></i></div>
+                        <div class="text-xs text-emerald-500 font-bold mb-2 tracking-wider">ENVIRONMENT</div>
+                        <div class="text-4xl font-black text-slate-800" id="modalEnv">50</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-blue-100/50 hover:shadow-md transition-shadow relative overflow-hidden group">
+                        <div class="absolute -right-4 -bottom-4 opacity-5 text-blue-600 text-6xl group-hover:scale-110 transition-transform duration-500"><i class="fa-solid fa-handshake"></i></div>
+                        <div class="text-xs text-blue-500 font-bold mb-2 tracking-wider">SOCIAL</div>
+                        <div class="text-4xl font-black text-slate-800" id="modalSoc">50</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-amber-100/50 hover:shadow-md transition-shadow relative overflow-hidden group">
+                        <div class="absolute -right-4 -bottom-4 opacity-5 text-amber-600 text-6xl group-hover:scale-110 transition-transform duration-500"><i class="fa-solid fa-coins"></i></div>
+                        <div class="text-xs text-amber-500 font-bold mb-2 tracking-wider">ECONOMY</div>
+                        <div class="text-4xl font-black text-slate-800" id="modalEco">50</div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center gap-6 bg-white p-6 rounded-2xl border border-slate-100 mb-10 shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-slate-300"></div>
+                    <div class="w-16 h-16 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-400 text-2xl border border-slate-100">
+                        <i class="fa-solid fa-stopwatch"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-400 font-bold uppercase tracking-widest mb-1">Total Waktu Bermain Aktif</p>
+                        <p class="text-2xl font-black text-slate-800" id="modalPlaytime">0 s</p>
+                    </div>
+                </div>
+
+                <!-- Reflection Timeline -->
+                <div>
+                    <h4 class="text-sm font-black text-slate-400 mb-6 uppercase tracking-widest flex items-center gap-3">
+                        <i class="fa-solid fa-book-open text-indigo-400 text-lg"></i> Jurnal Pemikiran (Refleksi)
+                    </h4>
+                    <div id="modalReflectionList" class="space-y-6 relative before:absolute before:inset-0 before:ml-[1.35rem] md:before:ml-6 before:-translate-x-px before:h-full before:w-1 before:bg-gradient-to-b before:from-indigo-100 before:via-slate-200 before:to-transparent before:rounded-full">
+                        <!-- Items injected here -->
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <!-- Script Application -->
     <script>
         let levelsData = null;
 
-        // --- Tab Switching Logic ---
-        function switchTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active'));
+        // --- Layout Logic ---
+        function switchTab(tabId, btnElement) {
+            document.querySelectorAll('.tab-content').forEach(t => {
+                t.classList.remove('active');
+            });
+            document.querySelectorAll('.sidebar-item').forEach(t => {
+                t.classList.remove('active');
+                let icon = t.querySelector('i');
+                if(icon) {
+                    icon.classList.remove('text-white');
+                    icon.classList.add('text-slate-400');
+                }
+            });
             
             document.getElementById(tabId).classList.add('active');
-            event.currentTarget.classList.add('active');
+            
+            // Activate button
+            btnElement.classList.add('active');
+            let icon = btnElement.querySelector('i');
+            if(icon) {
+                icon.classList.remove('text-slate-400');
+                icon.classList.add('text-white');
+            }
+            
+            document.getElementById('headerTitle').innerText = tabId === 'monitoring' ? 'Dashboard Overview' : 'Modifikasi Misi';
 
             if (tabId === 'monitoring') loadPlayers();
             if (tabId === 'tasks' && !levelsData) loadLevels();
@@ -126,54 +322,88 @@
         // --- Monitoring Logic ---
         async function loadPlayers() {
             const tbody = document.getElementById('playerTableBody');
-            tbody.innerHTML = '<tr><td colspan="6" class="px-6 py-4 text-center text-gray-500">Memuat data...</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="7" class="px-6 py-12 text-center text-slate-400"><i class="fa-solid fa-circle-notch fa-spin text-3xl mb-3 text-emerald-500"></i><br><span class="font-medium tracking-wide">Menarik data dari database...</span></td></tr>';
             
             try {
                 const res = await fetch('/api/players');
                 const players = await res.json();
                 
                 if (players.length === 0) {
-                    tbody.innerHTML = '<tr><td colspan="6" class="px-6 py-4 text-center text-gray-500">Belum ada data pemain.</td></tr>';
+                    tbody.innerHTML = '<tr><td colspan="7" class="px-6 py-16 text-center text-slate-400"><div class="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fa-solid fa-box-open text-3xl opacity-50"></i></div><span class="font-bold text-lg text-slate-500">Data Masih Kosong</span><br>Belum ada pemain yang mensinkronkan datanya.</td></tr>';
+                    
+                    // Reset stats
+                    document.getElementById('statTotalPlayers').innerText = "0";
+                    document.getElementById('statAvgEnv').innerText = "0";
+                    document.getElementById('statAvgSoc').innerText = "0";
+                    document.getElementById('statAvgEco').innerText = "0";
                     return;
                 }
 
-                tbody.innerHTML = '';
+                // Calculate Stats
+                let totalEnv = 0, totalSoc = 0, totalEco = 0;
                 players.forEach(p => {
+                    totalEnv += p.envScore || 50;
+                    totalSoc += p.socialScore || 50;
+                    totalEco += p.economyScore || 50;
+                });
+                
+                document.getElementById('statTotalPlayers').innerText = players.length;
+                document.getElementById('statAvgEnv').innerText = (totalEnv / players.length).toFixed(1);
+                document.getElementById('statAvgSoc').innerText = (totalSoc / players.length).toFixed(1);
+                document.getElementById('statAvgEco').innerText = (totalEco / players.length).toFixed(1);
+
+                tbody.innerHTML = '';
+                players.forEach((p, index) => {
                     const tr = document.createElement('tr');
-                    tr.className = 'border-b hover:bg-gray-50';
+                    tr.className = 'hover:bg-slate-50/80 transition-colors group cursor-default';
+                    
+                    // Badges for scores
+                    const getBadge = (val, color) => `<span class="px-3 py-1.5 rounded-lg text-xs font-black bg-${color}-50 text-${color}-600 border border-${color}-100 shadow-sm">${val}</span>`;
+                    
                     tr.innerHTML = `
-                        <td class="px-6 py-4 font-medium text-gray-900">${p.playerName}</td>
-                        <td class="px-6 py-4 font-bold text-purple-600">${p.knowledgeScore || 0}</td>
-                        <td class="px-6 py-4 font-semibold text-green-600">${p.envScore || 50}</td>
-                        <td class="px-6 py-4 font-semibold text-blue-600">${p.socialScore || 50}</td>
-                        <td class="px-6 py-4 font-semibold text-yellow-600">${p.economyScore || 50}</td>
-                        <td class="px-6 py-4">${(p.playTime || 0).toFixed(1)} s</td>
-                        <td class="px-6 py-4 text-center">
-                            <button onclick='showPlayerDetail(${JSON.stringify(p)})' class="text-xs bg-indigo-100 text-indigo-700 hover:bg-indigo-200 px-3 py-1.5 rounded font-bold">Detail</button>
+                        <td class="px-6 py-4">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 font-bold text-sm shadow-sm group-hover:bg-slate-100 transition-colors">
+                                    ${index+1}
+                                </div>
+                                <span class="font-bold text-slate-800 text-base">${p.playerName}</span>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4">${getBadge(p.knowledgeScore || 0, 'purple')}</td>
+                        <td class="px-6 py-4">${getBadge(p.envScore || 50, 'emerald')}</td>
+                        <td class="px-6 py-4">${getBadge(p.socialScore || 50, 'blue')}</td>
+                        <td class="px-6 py-4">${getBadge(p.economyScore || 50, 'amber')}</td>
+                        <td class="px-6 py-4">
+                            <div class="flex items-center gap-2 text-slate-500 font-bold text-sm">
+                                <i class="fa-regular fa-clock opacity-50"></i> ${(p.playTime || 0).toFixed(1)}s
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 text-right">
+                            <button onclick='showPlayerDetail(${JSON.stringify(p).replace(/'/g, "&#39;")})' class="px-4 py-2 bg-white border border-slate-200 hover:border-indigo-400 hover:bg-indigo-50 hover:text-indigo-700 hover:shadow-md text-slate-600 rounded-xl font-bold transition-all hover:-translate-y-0.5">Detail <i class="fa-solid fa-arrow-right text-xs ml-1 opacity-70"></i></button>
                         </td>
                     `;
                     tbody.appendChild(tr);
                 });
             } catch (err) {
-                tbody.innerHTML = `<tr><td colspan="6" class="px-6 py-4 text-center text-red-500">Error: ${err.message}</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="7" class="px-6 py-12 text-center text-red-500"><i class="fa-solid fa-triangle-exclamation text-3xl mb-3"></i><br><span class="font-bold">Koneksi database terputus.</span><br><span class="text-sm opacity-80">${err.message}</span></td></tr>`;
             }
         }
 
         async function deletePlayers() {
-            if (!confirm('Apakah Anda yakin ingin menghapus SEMUA data pemain? Tindakan ini tidak dapat dibatalkan.')) return;
+            if (!confirm('PERINGATAN KERAS!\n\nSeluruh data analitik pemain yang terkumpul akan dihapus permanen dan tidak bisa dikembalikan. Yakin ingin melanjutkan?')) return;
             
             try {
                 const res = await fetch('/api/players', { method: 'DELETE' });
-                const result = await res.json();
-                alert(result.message || 'Data berhasil dihapus');
+                await res.json();
                 loadPlayers();
             } catch (err) {
-                alert('Gagal menghapus data: ' + err.message);
+                alert('Gagal mereset data: ' + err.message);
             }
         }
 
         function showPlayerDetail(player) {
-            document.getElementById('detailModal').classList.remove('hidden');
+            const modal = document.getElementById('detailModal');
+            modal.classList.remove('hidden');
             
             // Populate Basic Stats
             document.getElementById('modalPlayerName').innerText = player.playerName;
@@ -181,31 +411,52 @@
             document.getElementById('modalEnv').innerText = player.envScore || 50;
             document.getElementById('modalSoc').innerText = player.socialScore || 50;
             document.getElementById('modalEco').innerText = player.economyScore || 50;
-            document.getElementById('modalPlaytime').innerText = (player.playTime || 0).toFixed(1) + ' s';
+            document.getElementById('modalPlaytime').innerText = (player.playTime || 0).toFixed(1) + ' detik';
 
-            // Populate Reflection
+            // Populate Reflection (Timeline Style)
             const reflectionContainer = document.getElementById('modalReflectionList');
             reflectionContainer.innerHTML = '';
             
             try {
                 const answers = typeof player.reflectionAnswers === 'string' ? JSON.parse(player.reflectionAnswers) : player.reflectionAnswers;
                 if (!answers || answers.length === 0) {
-                    reflectionContainer.innerHTML = '<p class="text-sm text-gray-500 italic">Belum ada data refleksi.</p>';
+                    reflectionContainer.innerHTML = `
+                        <div class="relative flex items-start group">
+                            <div class="flex items-center justify-center w-12 h-12 rounded-full border-4 border-slate-50 bg-slate-200 text-slate-400 shadow-sm shrink-0 z-10">
+                                <i class="fa-solid fa-comment-slash"></i>
+                            </div>
+                            <div class="ml-6 p-6 rounded-2xl border border-slate-100 bg-white shadow-sm italic text-slate-400 font-medium w-full">
+                                Pemain ini belum mengisi jurnal refleksi apapun.
+                            </div>
+                        </div>
+                    `;
                     return;
                 }
                 
                 answers.forEach((ans, i) => {
                     const div = document.createElement('div');
-                    div.className = 'bg-gray-50 p-3 rounded mb-2 border border-gray-100';
+                    div.className = 'relative flex items-start group mb-8 last:mb-0';
                     div.innerHTML = `
-                        <div class="text-xs text-gray-400 mb-1 font-semibold">${ans.levelName || 'Level ?'}</div>
-                        <div class="text-sm text-gray-800 font-medium mb-1">Q: ${ans.question}</div>
-                        <div class="text-sm text-indigo-600">A: ${ans.answer}</div>
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full border-4 border-slate-50 bg-indigo-500 text-white shadow-md shrink-0 z-10 transition-transform group-hover:scale-110">
+                            <span class="font-black text-sm">${i+1}</span>
+                        </div>
+                        <div class="ml-6 p-6 rounded-2xl border border-slate-100 bg-white shadow-sm hover:shadow-lg transition-all w-full relative overflow-hidden">
+                            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-400 to-emerald-400"></div>
+                            <div class="inline-block px-3 py-1 bg-indigo-50 text-indigo-600 rounded-lg text-xs font-black uppercase tracking-wider mb-3">${ans.levelName || 'Level Tidak Diketahui'}</div>
+                            <div class="text-base font-bold text-slate-800 mb-4 leading-relaxed">"${ans.question}"</div>
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <i class="fa-solid fa-reply text-slate-400 text-xs"></i>
+                                    <div class="text-[10px] text-slate-500 font-black uppercase tracking-widest">Respon Pemain</div>
+                                </div>
+                                <div class="text-sm text-indigo-800 font-semibold leading-relaxed">${ans.answer}</div>
+                            </div>
+                        </div>
                     `;
                     reflectionContainer.appendChild(div);
                 });
             } catch(e) {
-                reflectionContainer.innerHTML = '<p class="text-sm text-red-500">Data refleksi tidak valid.</p>';
+                reflectionContainer.innerHTML = '<div class="ml-12 p-4 bg-red-50 border border-red-100 rounded-xl text-red-500 font-bold text-sm">Gagal memproses data refleksi pemain ini.</div>';
             }
         }
 
@@ -216,30 +467,30 @@
         // --- Task Editor Logic ---
         let currentRoleTab = 'remajaLevels';
 
-        function switchRoleTab(roleKey) {
+        function switchRoleTab(roleKey, btnElement) {
             currentRoleTab = roleKey;
             
             // Update UI tabs
             document.querySelectorAll('.role-tab').forEach(t => {
-                t.classList.remove('text-emerald-600', 'font-bold', 'border-emerald-600');
-                t.classList.add('text-gray-500', 'border-transparent');
+                t.classList.remove('text-emerald-600', 'border-emerald-500');
+                t.classList.add('text-slate-400', 'border-transparent');
             });
-            event.currentTarget.classList.remove('text-gray-500', 'border-transparent');
-            event.currentTarget.classList.add('text-emerald-600', 'font-bold', 'border-emerald-600');
+            btnElement.classList.remove('text-slate-400', 'border-transparent');
+            btnElement.classList.add('text-emerald-600', 'border-emerald-500');
             
             renderLevelsEditor();
         }
 
         async function loadLevels() {
             const container = document.getElementById('levelsEditorContainer');
-            container.innerHTML = '<div class="text-gray-500">Memuat data level...</div>';
+            container.innerHTML = '<div class="col-span-full py-16 text-center text-slate-400"><i class="fa-solid fa-circle-notch fa-spin text-4xl mb-4 text-emerald-400"></i><br><span class="font-bold">Membaca Skema Level...</span></div>';
             
             try {
                 const res = await fetch('/api/levels');
                 levelsData = await res.json();
                 renderLevelsEditor();
             } catch (err) {
-                container.innerHTML = `<div class="text-red-500">Error: ${err.message}</div>`;
+                container.innerHTML = `<div class="col-span-full py-12 text-center text-red-500 font-bold bg-red-50 rounded-2xl border border-red-100">Error memuat tingkat level: ${err.message}</div>`;
             }
         }
 
@@ -248,36 +499,46 @@
             container.innerHTML = '';
 
             if (levelsData) {
-                let title = currentRoleTab === 'remajaLevels' ? 'Remaja' : currentRoleTab === 'dewasaLevels' ? 'Dewasa' : 'Gubernur';
-                renderRoleGroup(container, currentRoleTab, 'Role: ' + title);
+                renderRoleGroup(container, currentRoleTab);
             }
         }
 
-        function renderRoleGroup(container, roleKey, roleTitle) {
+        function renderRoleGroup(container, roleKey) {
             if (!levelsData[roleKey]) return;
 
             levelsData[roleKey].forEach((level, levelIndex) => {
                 const card = document.createElement('div');
-                card.className = 'border rounded-lg p-4 bg-gray-50';
+                card.className = 'bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-lg transition-shadow relative overflow-hidden';
                 
                 let questsHtml = '';
                 level.quests.forEach((q, questIndex) => {
                     questsHtml += `
-                        <div class="mt-3 p-3 bg-white border rounded shadow-sm">
-                            <div class="flex justify-between items-center mb-1">
-                                <span class="text-xs font-mono bg-gray-100 text-gray-600 px-2 py-0.5 rounded">${q.id}</span>
-                                <span class="text-xs text-gray-400">Target: ${q.targetAmount} | +${q.rewardEnv} Env | +${q.rewardKnowledgePoints} XP</span>
+                        <div class="mt-5 p-5 bg-slate-50 border border-slate-100 rounded-xl relative group transition-colors hover:bg-slate-100/50">
+                            <div class="flex flex-wrap justify-between items-center mb-4 gap-2">
+                                <span class="text-xs font-mono bg-white border border-slate-200 text-slate-700 px-3 py-1.5 rounded-lg font-bold shadow-sm"><i class="fa-solid fa-code text-indigo-400 mr-1"></i>${q.id}</span>
+                                <div class="flex gap-2">
+                                    <span class="text-xs font-black bg-slate-200 text-slate-600 px-2.5 py-1 rounded-md" title="Target">x${q.targetAmount}</span>
+                                    <span class="text-xs font-black bg-emerald-100 text-emerald-700 px-2.5 py-1 rounded-md" title="Environment">+${q.rewardEnv} Env</span>
+                                    <span class="text-xs font-black bg-purple-100 text-purple-700 px-2.5 py-1 rounded-md" title="XP">+${q.rewardKnowledgePoints} XP</span>
+                                </div>
                             </div>
-                            <label class="text-xs text-gray-500 block mb-1">Deskripsi Misi (narasi untuk pemain):</label>
-                            <input type="text" class="w-full border rounded p-1 text-sm" value="${q.description}" 
-                                placeholder="Masukkan kalimat instruksi yang jelas..."
-                                onchange="updateQuestData('${roleKey}', ${levelIndex}, ${questIndex}, 'description', this.value)">
+                            <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-2">Teks Instruksi UI (Dapat Diedit)</label>
+                            <textarea class="w-full border border-slate-200 rounded-xl p-4 text-sm focus:ring-4 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none transition-all resize-none text-slate-800 font-semibold shadow-inner bg-white" 
+                                rows="2"
+                                placeholder="Masukkan kalimat instruksi..."
+                                onchange="updateQuestData('${roleKey}', ${levelIndex}, ${questIndex}, 'description', this.value)">${q.description}</textarea>
                         </div>
                     `;
                 });
 
                 card.innerHTML = `
-                    <h3 class="font-bold text-gray-700">${level.levelName}</h3>
+                    <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-emerald-400 to-teal-400"></div>
+                    <div class="flex items-center gap-4 mb-2 mt-2">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-black text-lg border border-emerald-100 shadow-sm">
+                            ${levelIndex + 1}
+                        </div>
+                        <h3 class="font-black text-xl text-slate-800 tracking-tight">${level.levelName.split(':')[1] ? level.levelName.split(':')[1].trim() : level.levelName}</h3>
+                    </div>
                     <div class="quests-container">${questsHtml}</div>
                 `;
                 container.appendChild(card);
@@ -290,8 +551,9 @@
 
         async function saveLevels() {
             const statusDiv = document.getElementById('editorStatus');
-            statusDiv.className = 'mb-4 text-sm text-blue-600 block';
-            statusDiv.innerText = 'Menyimpan...';
+            statusDiv.classList.remove('hidden', 'bg-emerald-50', 'text-emerald-700', 'border-emerald-200', 'bg-red-50', 'text-red-700', 'border-red-200');
+            statusDiv.classList.add('bg-blue-50', 'text-blue-700', 'border-blue-200', 'block');
+            statusDiv.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Menyinkronkan konfigurasi dengan server produksi...';
 
             try {
                 const res = await fetch('/api/levels', {
@@ -299,73 +561,23 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(levelsData)
                 });
-                const result = await res.json();
+                await res.json();
                 
-                statusDiv.className = 'mb-4 text-sm text-green-600 block font-medium';
-                statusDiv.innerText = 'Berhasil disimpan ke server!';
-                setTimeout(() => statusDiv.classList.add('hidden'), 3000);
+                statusDiv.classList.remove('bg-blue-50', 'text-blue-700', 'border-blue-200');
+                statusDiv.classList.add('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+                statusDiv.innerHTML = '<i class="fa-solid fa-check-circle mr-2"></i> Mantap! Perubahan berhasil disimpan dan langsung aktif di Game pemain.';
+                setTimeout(() => statusDiv.classList.add('hidden'), 4000);
             } catch (err) {
-                statusDiv.className = 'mb-4 text-sm text-red-600 block';
-                statusDiv.innerText = 'Gagal menyimpan: ' + err.message;
+                statusDiv.classList.remove('bg-blue-50', 'text-blue-700', 'border-blue-200');
+                statusDiv.classList.add('bg-red-50', 'text-red-700', 'border-red-200');
+                statusDiv.innerHTML = '<i class="fa-solid fa-triangle-exclamation mr-2"></i> Gagal menyimpan perubahan: ' + err.message;
             }
         }
 
-        // Init
-        loadPlayers();
+        // Init App
+        document.addEventListener('DOMContentLoaded', () => {
+            loadPlayers();
+        });
     </script>
-
-    <!-- Player Detail Modal -->
-    <div id="detailModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
-        <div class="bg-white rounded-lg shadow-xl w-full max-w-2xl mx-4 max-h-[90vh] flex flex-col">
-            <!-- Header -->
-            <div class="px-6 py-4 border-b flex justify-between items-center bg-gray-50 rounded-t-lg">
-                <h3 class="text-lg font-bold text-gray-800">Detail Analisis Pemain</h3>
-                <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600 font-bold text-xl">&times;</button>
-            </div>
-            
-            <!-- Body -->
-            <div class="p-6 overflow-y-auto">
-                <div class="mb-4">
-                    <h4 class="text-xl font-black text-gray-900" id="modalPlayerName">Player_Name</h4>
-                </div>
-                
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                    <div class="bg-purple-50 p-3 rounded text-center border border-purple-100">
-                        <div class="text-xs text-purple-600 font-bold mb-1">XP (KNOWLEDGE)</div>
-                        <div class="text-xl font-black text-purple-700" id="modalXP">0</div>
-                    </div>
-                    <div class="bg-green-50 p-3 rounded text-center border border-green-100">
-                        <div class="text-xs text-green-600 font-bold mb-1">ENVIRONMENT</div>
-                        <div class="text-xl font-black text-green-700" id="modalEnv">50</div>
-                    </div>
-                    <div class="bg-blue-50 p-3 rounded text-center border border-blue-100">
-                        <div class="text-xs text-blue-600 font-bold mb-1">SOCIAL</div>
-                        <div class="text-xl font-black text-blue-700" id="modalSoc">50</div>
-                    </div>
-                    <div class="bg-yellow-50 p-3 rounded text-center border border-yellow-100">
-                        <div class="text-xs text-yellow-600 font-bold mb-1">ECONOMY</div>
-                        <div class="text-xl font-black text-yellow-700" id="modalEco">50</div>
-                    </div>
-                </div>
-
-                <div class="mb-6 bg-gray-50 p-3 rounded border border-gray-200">
-                    <span class="text-sm font-semibold text-gray-600">Waktu Bermain: </span>
-                    <span class="text-sm font-bold text-gray-800" id="modalPlaytime">0 s</span>
-                </div>
-
-                <div>
-                    <h4 class="text-md font-bold text-gray-800 mb-3 border-b pb-2">Hasil Refleksi</h4>
-                    <div id="modalReflectionList" class="space-y-3">
-                        <!-- Reflection items will be injected here -->
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Footer -->
-            <div class="px-6 py-4 border-t bg-gray-50 rounded-b-lg flex justify-end">
-                <button onclick="closeModal()" class="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded font-medium transition">Tutup</button>
-            </div>
-        </div>
-    </div>
 </body>
 </html>

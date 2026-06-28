@@ -54,7 +54,7 @@
       "quests": [
         {
           "id": "tutup_keran",
-          "description": "Laporkan 1 Keran Hydrant yang bocor",
+          "description": "Laporkan 1 Keran Hydrant yang bocor ",
           "targetAmount": 1,
           "rewardEnv": 2,
           "rewardKnowledgePoints": 10

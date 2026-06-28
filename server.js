@@ -75,7 +75,7 @@ app.post('/api/levels', (req, res) => {
 // API: Submit Player Data
 app.post('/api/players', (req, res) => {
     const { playerName, score, envScore, socialScore, economyScore, knowledgeScore, playTime, reflectionAnswers } = req.body;
-    
+
     if (!playerName) {
         return res.status(400).json({ error: 'playerName is required' });
     }
@@ -95,15 +95,15 @@ app.post('/api/players', (req, res) => {
             playTime = VALUES(playTime),
             reflectionAnswers = VALUES(reflectionAnswers)
     `;
-    
+
     const params = [
-        playerName, 
-        score || 0, 
-        envScore || 50, 
-        socialScore || 50, 
-        economyScore || 50, 
-        knowledgeScore || 0, 
-        playTime || 0, 
+        playerName,
+        score || 0,
+        envScore || 50,
+        socialScore || 50,
+        economyScore || 50,
+        knowledgeScore || 0,
+        playTime || 0,
         reflectionJson
     ];
 
